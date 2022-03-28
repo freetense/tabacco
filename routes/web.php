@@ -1,17 +1,17 @@
 <?php
 
+use App\Http\Controllers\api\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/**
+ * Роуты api.
+ */
+Route::get('/categoryAll', [CategoryController::class, 'apiCategoryAll']);
+
+Route::get('/listing/{name}', function ($name) {
+    return view('pages/listing');
+})->where('name', '[A-Za-z]+');
+
 
 Route::get('/', function () {
     return view('index');
@@ -35,10 +35,6 @@ Route::get('/delivery', function () {
 
 Route::get('/checkout', function () {
     return view('pages/checkout');
-});
-
-Route::get('/listing', function () {
-    return view('pages/listing');
 });
 
 Route::get('/product', function () {

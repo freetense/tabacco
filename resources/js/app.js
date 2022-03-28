@@ -1,5 +1,13 @@
 require('./bootstrap');
-
+import Vue from 'vue';
+import YmapPlugin from 'vue-yandex-maps';
+const settings = {
+    apiKey: '',
+    lang: 'ru_RU',
+    coordorder: 'latlong',
+    enterprise: false,
+    version: '2.1'
+}
 window.Vue = require('vue').default;
 
 Vue.component('App', require('./components/App.vue').default);
@@ -14,6 +22,7 @@ Vue.component('Order', require('./components/order/Order.vue').default);
 Vue.component('Orders', require('./components/order/Orders.vue').default);
 Vue.component('Product', require('./components/product/Items.vue').default);
 Vue.component('Sitemap', require('./components/sitemap/Items.vue').default);
+Vue.use(YmapPlugin, settings);
 
 const app = new Vue({
     el: '#app',

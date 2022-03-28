@@ -8,8 +8,10 @@
 </template>
 
 <script>
+const { yandexMap, ymapMarker } = require('vue-yandex-maps');
 export default {
-    name: "Cart"
+    name: "Cart",
+    components: { yandexMap, ymapMarker }
 }
 </script>
 
